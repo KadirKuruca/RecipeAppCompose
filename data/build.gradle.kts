@@ -65,6 +65,8 @@ dependencies {
     //Room
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler.kapt)
+    implementation(libs.androidx.room.ktx)
 
     //Chucker
     debugImplementation(libs.chucker.debug.library)
