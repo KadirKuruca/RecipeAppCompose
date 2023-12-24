@@ -17,3 +17,4 @@ rootProject.name = "RecipeAppCompose"
 include(":app")
 include(":core")
 include(":data")
+include(":domain")
