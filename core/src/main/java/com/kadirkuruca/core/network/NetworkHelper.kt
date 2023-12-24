@@ -21,8 +21,6 @@ fun createOkHttpClient(
         connectTimeout(CLIENT_TIME_OUT, TimeUnit.SECONDS)
         readTimeout(CLIENT_TIME_OUT, TimeUnit.SECONDS)
         writeTimeout(CLIENT_TIME_OUT, TimeUnit.SECONDS)
-        followSslRedirects(true)
-        followRedirects(true)
         retryOnConnectionFailure(true)
     }.build()
 }
