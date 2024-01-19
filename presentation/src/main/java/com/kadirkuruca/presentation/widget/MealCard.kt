@@ -1,5 +1,6 @@
 package com.kadirkuruca.presentation.widget
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,13 +24,17 @@ import com.kadirkuruca.presentation.theme.cardBackgroundColor
 @Composable
 fun MealCard(
     modifier: Modifier = Modifier,
-    mealDto: FilteredMeal
+    mealDto: FilteredMeal,
+    onMealClick: (FilteredMeal) -> Unit
 ) {
-    ElevatedCard (
+    ElevatedCard(
         modifier
             .padding(vertical = 12.dp)
             .fillMaxWidth()
-            .wrapContentHeight(),
+            .wrapContentHeight()
+            .clickable {
+               onMealClick.invoke(mealDto)
+            },
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(
             containerColor = RecipeAppColors.cardBackgroundColor,
@@ -58,6 +63,8 @@ fun MealCard(
 @Composable
 fun MealCardPreview() {
     RecipeAppComposeTheme {
-        MealCard(mealDto = FilteredMeal.getTestFilteredMealList().first())
+        MealCard(mealDto = FilteredMeal.getTestFilteredMealList().first()) {
+
+        }
     }
 }

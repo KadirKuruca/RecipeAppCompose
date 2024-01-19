@@ -1,5 +1,6 @@
 package com.kadirkuruca.presentation.ui.home
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,6 +21,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kadirkuruca.data.model.remote.filteredmeal.FilteredMeal
@@ -47,6 +49,7 @@ fun HomeScreen(
 fun HomeScreenContent(
     innerPadding: PaddingValues
 ) {
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -84,7 +87,9 @@ fun HomeScreenContent(
                 .padding(horizontal = 24.dp)
         ) {
             items(list) {
-                MealCard(mealDto = it)
+                MealCard(mealDto = it) { meal ->
+                    Toast.makeText(context, meal.strMeal, Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
