@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecipeAppCompose</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_categories">Categories</string>
+    <string name="menu_favourites">Favourites</string>
+    <string name="menu_settings">Settings</string>
+</resources>
